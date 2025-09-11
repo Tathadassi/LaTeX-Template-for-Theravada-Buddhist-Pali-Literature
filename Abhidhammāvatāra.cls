@@ -208,7 +208,7 @@
 {%
     \IfBooleanTF{#1}
     {\textbf{Commentary}}% % Just display "Commentary"
-    {\textbf{Commentary: }〈#2〉}% % Display "Commentary: " + 〈Commentary text/translation〉
+    {\textbf{Commentary: }< #2 >}% % Display "Commentary: " + 〈Commentary text/translation〉
 }
 
 % Subcommentary command: Tika identification
@@ -216,7 +216,7 @@
 {%
     \IfBooleanTF{#1}
     {\textbf{Subcomm.}}% % Just display "Subcomm."
-    {\textbf{Subcomm.: }〔#2〕}% % Display "Subcomm.: " + 〔Subcommentary text/translation〕
+    {\textbf{Subcomm.: }\{#2\}}% % Display "Subcomm.: " + 〔Subcommentary text/translation〕
 }
 
 % Other command: Non-commentarial literature identification
@@ -224,7 +224,7 @@
 {%
     \IfBooleanTF{#1}
     {\textbf{Other}}% % Just display "Other"
-    {\textbf{Other: }［#2］}% % Display "Other: " + ［Other text］
+    {\textbf{Other: }[#2]}% % Display "Other: " + ［Other text］
 }
 
 % Related commands
