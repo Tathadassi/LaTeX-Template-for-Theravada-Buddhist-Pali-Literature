@@ -1,4 +1,4 @@
-```markdown
+```
 # Abhidhammāvatāra LaTeX Template
 
 A professional academic typesetting template specifically designed for Theravada Buddhist Abhidhamma literature research, translation, and commentary. Supports multilingual typesetting (English, Pali, Burmese, Chinese) with specialized features for Buddhist textual studies.
