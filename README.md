@@ -88,8 +88,8 @@ The concept of \termdisplay{citta} is fundamental to understanding consciousness
 Citation Commands
 
 ```latex
-\citebur{dhammasangani_pali}      % Burmese source citation
-\citechn{mulapannasa_atthakatha_1} % Chinese source citation
+\citemm{dhammasangani_pali}      % Burmese source citation
+
 ```
 
 Annotation Systems
