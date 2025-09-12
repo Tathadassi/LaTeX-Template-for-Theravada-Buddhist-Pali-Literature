@@ -4,7 +4,7 @@
 % Version: 1.0 (2025)
 % Author: Gunodaya Bhikkhu
 % Description: A professional typesetting template for Theravada Abhidhamma literature translation and commentary.
-% Features: Supports multilingual typesetting (Pali, Burmese, Chinese), academic annotation systems, terminology management.
+% Features: Supports multilingual typesetting (Pali, Burmese, English), academic annotation systems, terminology management.
 
 % IMPORTANT COMPILATION NOTE: MUST be compiled with LuaLaTeX (due to complex scripts).
 % File Encoding: UTF-8
@@ -112,7 +112,7 @@
 % Redefine the entire font family to use regular font for italics
 \setmainfont{Times New Roman}[
     ItalicFont = Times New Roman,    % Use regular font for italic
-    BoldItalicFont = Times New Roman Bold, % Use bold font for bold italic
+    BoldItalicFont = Times New Roman, % Use bold font for bold italic
     SlantedFont = Times New Roman,   % Use regular font for slanted
     BoldSlantedFont = Times New Roman Bold % Use bold font for bold slanted
 ]
@@ -126,9 +126,6 @@
 % Define automatic language switching rules
 \babelprovide[import, onchar=ids fonts]{burmese}
 \babelprovide[import, onchar=ids fonts]{latin}
-
-% Chinese language support
-\babelprovide[import, language=Chinese, onchar=ids fonts]{chinese}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 5. Essential Package Loading
@@ -216,7 +213,7 @@
 {%
     \IfBooleanTF{#1}
     {\textbf{Subcomm.}}% % Just display "Subcomm."
-    {\textbf{Subcomm.: }\{#2\}}% % Display "Subcomm.: " + 〔Subcommentary text/translation〕
+    {\textbf{Subcomm.: }\{ #2 \}}% % Display "Subcomm.: " + 〔Subcommentary text/translation〕
 }
 
 % Other command: Non-commentarial literature identification
@@ -224,11 +221,11 @@
 {%
     \IfBooleanTF{#1}
     {\textbf{Other}}% % Just display "Other"
-    {\textbf{Other: }[#2]}% % Display "Other: " + ［Other text］
+    {\textbf{Other: }[ #2 ]}% % Display "Other: " + ［Other text］
 }
 
 % Related commands
-\newcommand{\sacredtext}[1]{\textbf{#1}} % Sacred text format: Bold
+\newcommand{\sacredtext}[1]{\textcolor{red}{#1}} % Sacred text format: Bold
 \newcommand{\conjmark}{\colorbox[gray]{0.85}{Conj.}\space} % Conjunction marker
 \newcommand{\conjunction}[1]{\footnote{\conjmark #1}} % Conjunction note
 \newcommand{\rulemark}{\colorbox[gray]{0.85}{Rule}\space} % Rule marker
@@ -247,7 +244,7 @@
 }
 
 % Stem/Noun base command (linga - triangle symbol)
-\NewDocumentCommand\stem{m o}
+\NewDocumentCommand\linga{m o}
 {%
     \IfNoValueTF{#2}%
     {$\triangle$#1}% % No note: Just △ symbol and text
@@ -255,7 +252,7 @@
 }
 
 % Suffix/affix command (paccaya - asterisk symbol)
-\NewDocumentCommand\affix{m o}
+\NewDocumentCommand\paccaya{m o}
 {%
     \IfNoValueTF{#2}%
     {\textasteriskcentered #1}% % No note: Just * symbol and text
@@ -263,7 +260,7 @@
 }
 
 % Inflection/ending command (vibhatti - @ symbol)
-\NewDocumentCommand\ending{m o}
+\NewDocumentCommand\vibhatti{m o}
 {%
     \IfNoValueTF{#2}%
     {$@$#1}% % No note: Just @ symbol and text
@@ -271,7 +268,7 @@
 }
 
 % Word form command (pada - circled dot symbol): Represents complete word form
-\NewDocumentCommand\word{m o}
+\NewDocumentCommand\pada{m o}
 {%
     \IfNoValueTF{#2}%
     {$\odot$#1}% % No note: Just ⊙ symbol and text
@@ -282,81 +279,81 @@
 
 % Basic kitabasic analysis: △Stem = √Root + *Affix
 \NewDocumentCommand{\kitabasic}{m o m o m o}{%
-    \stem{#1}% % Display stem symbol and text
+    \linga{#1}% % Display stem symbol and text
     \IfValueT{#2}{\inlinenote{#2}}% % If stem note exists, show blue note
-    \ =\ \root{#3}% % Equals sign followed by root symbol and text
+    \ =\ \dhatu{#3}% % Equals sign followed by root symbol and text
     \IfValueT{#4}{\inlinenote{#4}}% % If root note exists, show blue note
-    \ +\ \affix{#5}% % Plus sign followed by affix symbol and text
+    \ +\ \paccaya{#5}% % Plus sign followed by affix symbol and text
     \IfValueT{#6}{\inlinenote{#6}}% % If affix note exists, show blue note
 }
 
 % Full kitafull analysis
 \NewDocumentCommand{\kitafull}{s m o m o m o m o}{%
-    \stem{#2}% % Display result stem symbol and text
+    \linga{#2}% % Display result stem symbol and text
     \IfValueT{#3}{\inlinenote{#3}}% % If result stem note exists, show blue note
     \ =\ % % Display equals sign
     \IfBooleanTF{#1}
     {% Star mode: △ = √ + * + * (two affixes)
-        \root{#4}% % Display root symbol and text
+        \dhatu{#4}% % Display root symbol and text
         \IfValueT{#5}{\inlinenote{#5}}% % If root note exists, show blue note
         \ +\ % % Display plus sign
-        \affix{#6}% % Display secondary affix symbol and text
+        \paccaya{#6}% % Display secondary affix symbol and text
         \IfValueT{#7}{\inlinenote{#7}}% % If secondary affix note exists, show blue note
         \ +\ % % Display plus sign
-        \affix{#8}% % Display primary affix symbol and text
+        \paccaya{#8}% % Display primary affix symbol and text
         \IfValueT{#9}{\inlinenote{#9}}% % If primary affix note exists, show blue note
     }
     {% No star mode: △ = △ + √ + * (Stem + Root + Affix)
-        \stem{#4}% % Display previous stem symbol and text
+        \linga{#4}% % Display previous stem symbol and text
         \IfValueT{#5}{\inlinenote{#5}}% % If previous stem note exists, show blue note
-        \ +\ \root{#6}% % Display root symbol and text
+        \ +\ \dhatu{#6}% % Display root symbol and text
         \IfValueT{#7}{\inlinenote{#7}}% % If root note exists, show blue note
-        \ +\ \affix{#8}% % Display affix symbol and text
+        \ +\ \paccaya{#8}% % Display affix symbol and text
         \IfValueT{#9}{\inlinenote{#9}}% % If affix note exists, show blue note
     }%
 }
 
 % Taddhita analysis
 \NewDocumentCommand{\taddhita}{m o m o m o}{%
-    \stem{#1}% % Display result stem symbol and text
+    \linga{#1}% % Display result stem symbol and text
     \IfValueT{#2}{\inlinenote{#2}}% % If result stem note exists, show blue note
-    \ =\ \stem{#3}% % Equals sign followed by base stem symbol and text
+    \ =\ \linga{#3}% % Equals sign followed by base stem symbol and text
     \IfValueT{#4}{\inlinenote{#4}}% % If base stem note exists, show blue note
-    \ +\ \affix{#5}% % Plus sign followed by affix symbol and text
+    \ +\ \paccaya{#5}% % Plus sign followed by affix symbol and text
     \IfValueT{#6}{\inlinenote{#6}}% % If affix note exists, show blue note
 }
 
 % Samasa analysis
 \NewDocumentCommand{\samasa}{m o m o m o}{%
-    \stem{#1}% % Display compound stem symbol and text
+    \linga{#1}% % Display compound stem symbol and text
     \IfValueT{#2}{\inlinenote{#2}}% % If compound stem note exists, show blue note
-    \ =\ \stem{#3}% % Equals sign followed by stem1 symbol and text
+    \ =\ \linga{#3}% % Equals sign followed by stem1 symbol and text
     \IfValueT{#4}{\inlinenote{#4}}% % If stem1 note exists, show blue note
-    \ +\ \stem{#5}% % Plus sign followed by stem2 symbol and text
+    \ +\ \linga{#5}% % Plus sign followed by stem2 symbol and text
     \IfValueT{#6}{\inlinenote{#6}}% % If stem2 note exists, show blue note
 }
 
 % ==================== Regular Inflected Word Analysis ====================
 
 % Noun analysis: ⊙Noun = △Stem + @Ending
-\NewDocumentCommand{\noun}{m o m o m o}{%
-    \word{#1}% % Display noun symbol and text
+\NewDocumentCommand{\namapada}{m o m o m o}{%
+    \pada{#1}% % Display noun symbol and text
     \IfValueT{#2}{\inlinenote{#2}}% % If noun note exists, show blue note
-    \ =\ \stem{#3}% % Equals sign followed by stem symbol and text
+    \ =\ \linga{#3}% % Equals sign followed by stem symbol and text
     \IfValueT{#4}{\inlinenote{#4}}% % If stem note exists, show blue note
-    \ +\ \ending{#5}% % Plus sign followed by ending symbol and text
+    \ +\ \vibhatti{#5}% % Plus sign followed by ending symbol and text
     \IfValueT{#6}{\inlinenote{#6}}% % If ending note exists, show blue note
 }
 
 % Verb analysis: ⊙Verb = √Root + *Affix + @Ending
-\NewDocumentCommand{\verbform}{m o m o m o m o}{%
-    \word{#1}% % Display verb symbol and text
+\NewDocumentCommand{\akhyatapada}{m o m o m o m o}{%
+    \pada{#1}% % Display verb symbol and text
     \IfValueT{#2}{\inlinenote{#2}}% % If verb note exists, show blue note
-    \ =\ \root{#3}% % Equals sign followed by root symbol and text
+    \ =\ \dhatu{#3}% % Equals sign followed by root symbol and text
     \IfValueT{#4}{\inlinenote{#4}}% % If root note exists, show blue note
-    \ +\ \affix{#5}% % Plus sign followed by affix symbol and text
+    \ +\ \paccaya{#5}% % Plus sign followed by affix symbol and text
     \IfValueT{#6}{\inlinenote{#6}}% % If affix note exists, show blue note
-    \ +\ \ending{#7}% % Plus sign followed by ending symbol and text
+    \ +\ \vibhatti{#7}% % Plus sign followed by ending symbol and text
     \IfValueT{#8}{\inlinenote{#8}}% % If ending note exists, show blue note
 }
 
@@ -366,10 +363,10 @@
     \IfBooleanTF{#1}
     {% Star mode
         \IfNoValueTF{#2}%
-        {{\tiny\textcolor{blue}{〈#3〉}}\normalsize}% % 〈Commentary〉 format
-        {{\tiny\textcolor{blue}{〔#3〕}}\normalsize}% % 〔Subcomm.〕 format
+        {{\tiny\textcolor{blue}{<#3>}}\normalsize}% % 〈Commentary〉 format
+        {{\tiny\textcolor{blue}{\{#3\}}}\normalsize}% % 〔Subcomm.〕 format
     }%
-    {{\tiny\textcolor{blue}{［#3］}}\normalsize}% % ［Other］ format
+    {{\tiny\textcolor{blue}{[#3]}}\normalsize}% % ［Other］ format
 }
 
 % 6.5 End Notes System - For detailed notes at chapter end (Exegesis)
