@@ -134,9 +134,47 @@
   BoldItalicFont = Noto Serif CJK SC Black
 ]
 
+% Use more universal fonts for Sanskrit and Hindi
+\defaultfontfeatures{Scale=MatchLowercase}
+\babelfont[sanskrit]{rm}[Renderer=Harfbuzz,
+    Extension=.ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold
+]{NotoSansDevanagari}
+
+\babelfont[hindi]{rm}[Renderer=Harfbuzz,
+    Extension=.ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold
+]{NotoSansDevanagari}
+
+% Add Sinhala language support
+\babelfont[sinhala]{rm}[Renderer=Harfbuzz,
+    Extension=.ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold
+]{NotoSansSinhala}
+
+% Fallback solution: Use system default fonts if Noto fonts are unavailable
+\IfFontExistsTF{NotoSansDevanagari-Regular.ttf}{
+    % Use Noto fonts
+}{
+    \babelfont[sanskrit]{rm}[Renderer=Harfbuzz]{}
+    \babelfont[hindi]{rm}[Renderer=Harfbuzz]{}
+}
+
+\IfFontExistsTF{NotoSansSinhala-Regular.ttf}{
+    % Use Noto fonts
+}{
+    \babelfont[sinhala]{rm}[Renderer=Harfbuzz]{}
+}
+
 % Define automatic language switching rules
 \babelprovide[import, onchar=ids fonts]{burmese}
 \babelprovide[import, onchar=ids fonts]{latin}
+\babelprovide[import, onchar=ids fonts]{sanskrit}
+\babelprovide[import, onchar=ids fonts]{hindi}
+\babelprovide[import, onchar=ids fonts]{sinhala}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 5. Essential Package Loading
