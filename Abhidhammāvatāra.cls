@@ -53,9 +53,9 @@
     citecolor=black, % Color for citation links: black
     linkcolor=red, % Color for internal cross-reference links: red
     % PDF metadata
-    pdftitle={Abhidhammāvatāra}, % Document title
+    pdftitle={Typesetting Template for Theravada Buddhist Literature}, % Document title
     pdfauthor={Gunodaya Bhikkhu}, % Author updated
-    pdfkeywords={Pali Canon, Abhidhamma, Atthakatha, Tika, Translation, Commentary}, % Keywords
+    pdfkeywords={Abhidhamma, Pali Canon, Atthakatha, Tika, Translation, Commentary}, % Keywords
     pdfstartview=Fit, % Initial view mode: Fit Page
     pdfsubject={Theravada Buddhism}, % Document subject
 }%
