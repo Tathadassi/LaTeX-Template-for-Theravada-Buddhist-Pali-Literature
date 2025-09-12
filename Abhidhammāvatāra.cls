@@ -306,7 +306,7 @@
     {% No star mode: △ = △ + √ + * (Stem + Root + Affix)
         \linga{#4}% % Display previous stem symbol and text
         \IfValueT{#5}{\inlinenote{#5}}% % If previous stem note exists, show blue note
-        \ +\ \dhatu{#6}% % Display root symbol and text
+        \dhatu{#6}% % Display root symbol and text
         \IfValueT{#7}{\inlinenote{#7}}% % If root note exists, show blue note
         \ +\ \paccaya{#8}% % Display affix symbol and text
         \IfValueT{#9}{\inlinenote{#9}}% % If affix note exists, show blue note
