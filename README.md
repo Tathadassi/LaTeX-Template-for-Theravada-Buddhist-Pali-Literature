@@ -97,12 +97,10 @@ Citation Commands
 Annotation Systems
 
 ```latex
-\begin{pali}
-Nibbānaṃ paramaṃ sukhaṃ. \emph{This appears in normal font}
-\end{pali}
+Nibbānaṃ paramaṃ sukhaṃ.
 
 \inlinenote{Inline note}          % Short inline annotation
-\endnote{Detailed commentary}     % End-of-chapter notes
+\myendnote{Detailed commentary}     % End-of-chapter notes
 \footnotealt{Brief explanation}   % Footnotes
 \marginnotealt{Margin reference}  % Margin notes
 ```

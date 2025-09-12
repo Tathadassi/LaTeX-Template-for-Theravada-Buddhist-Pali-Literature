@@ -196,6 +196,7 @@
 \usepackage{makecell} % Line breaks and formatting within table cells
 \usepackage{booktabs} % Professional quality table rules
 \usepackage{arydshln} % Dashed lines in tables and arrays
+\usepackage{caption,subcaption}
 
 % 5.3 List & Enumeration packages
 \usepackage{enumitem} % Enhanced list environments and spacing
