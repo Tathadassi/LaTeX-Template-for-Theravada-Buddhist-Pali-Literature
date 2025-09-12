@@ -1,10 +1,10 @@
 # Abhidhammāvatāra LaTeX Template
 
-A professional academic typesetting template specifically designed for Theravada Buddhist Abhidhamma literature research, translation, and commentary. Supports multilingual typesetting (Pali, Burmese, English, Chinese) with specialized features for Buddhist textual studies.
+A professional academic typesetting template specifically designed for Theravada Buddhist Abhidhamma literature research, translation, and commentary. Supports multilingual typesetting (Pali, Burmese, Sinhalese, Hindi, English, Chinese) with specialized features for Buddhist textual studies.
 
 ## Features
 
-- **Multilingual Support**: Full support for Pali (Romanized), Burmese, English, and Chinese text
+- **Multilingual Support**: Full support for Pali (Romanized), Burmese, Sinhalese, Hindi, English, and Chinese text
 - **Academic Annotation System**: Comprehensive note systems (inline, footnotes, endnotes, margin notes)
 - **Terminology Management**: Built-in glossary system for consistent terminology usage
 - **Professional Typesetting**: Optimized for academic publications on Buddhist texts
@@ -15,7 +15,9 @@ A professional academic typesetting template specifically designed for Theravada
 - **Engine**: LuaLaTeX (required for Burmese script support)
 - **Fonts**: 
   - Padauk (for Burmese script)
-  - Times New Roman (for Latin/Pali text)
+  - Times New Roman (for Latin/Pali script)
+  - NotoSansDevanagari (for Sanskrit and Hindi script)
+  - NotoSansSinhala (for Sinhalese script)
   - Noto Serif CJK SC (for Chinese text)
 - **TeX Distribution**: TeX Live 2023 or later recommended
 
