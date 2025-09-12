@@ -4,7 +4,7 @@
 % Version: 1.0 (2025)
 % Author: Gunodaya Bhikkhu
 % Description: A professional typesetting template for Theravada Abhidhamma literature translation and commentary.
-% Features: Supports multilingual typesetting (Pali, Burmese, English), academic annotation systems, terminology management.
+% Features: Supports multilingual typesetting (Pali, Burmese, English, Chinese), academic annotation systems, terminology management.
 
 % IMPORTANT COMPILATION NOTE: MUST be compiled with LuaLaTeX (due to complex scripts).
 % File Encoding: UTF-8
@@ -122,6 +122,17 @@
 
 % Set Burmese font
 \babelfont[burmese]{rm}[Renderer=Harfbuzz]{Padauk}
+
+% LuaLaTeX Chinese support solution
+\usepackage{luatexja} % Main Chinese support package
+\usepackage{luatexja-fontspec} % Font configuration support
+
+% Set Chinese font
+\setmainjfont{Noto Serif CJK SC}[
+  BoldFont = Noto Serif CJK SC Bold,
+  ItalicFont = Noto Serif CJK SC Light,
+  BoldItalicFont = Noto Serif CJK SC Black
+]
 
 % Define automatic language switching rules
 \babelprovide[import, onchar=ids fonts]{burmese}
