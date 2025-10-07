@@ -105,23 +105,16 @@
 \usepackage{babel} % Load babel package for language-specific hyphenation and rules
 \usepackage{fontspec} % Load fontspec for OpenType/TrueType font management
 
-% Set main Latin font
-\setmainfont{Times New Roman}
-\babelfont[latin]{rm}{Times New Roman}
+% Set main font: Latin font
+\setmainfont{TeX Gyre Schola}
+\setsansfont{TeX Gyre Heros}[Scale=MatchLowercase]
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
 
-% Redefine the entire font family to use regular font for italics
-\setmainfont{Times New Roman}[
-    ItalicFont = Times New Roman,    % Use regular font for italic
-    BoldItalicFont = Times New Roman Bold, % Use bold font for bold italic
-    SlantedFont = Times New Roman,   % Use regular font for slanted
-    BoldSlantedFont = Times New Roman Bold % Use bold font for bold slanted
-]
+% Set Latin font
+\babelfont[latin]{rm}{TeX Gyre Schola} % Set font for Latin: TeX Gyre Schola
 
-% Optional: Set different color for emphasized text instead of italics
-\renewcommand{\emph}[1]{\textcolor{blue}{#1}}
-
-% Set Burmese font
-\babelfont[burmese]{rm}[Renderer=Harfbuzz]{Padauk}
+% Set Burmese font: Using Padauk font with Burmese script support
+\babelfont[burmese]{rm}[Renderer=Harfbuzz]{Padauk} % Set font for Burmese, enable Harfbuzz renderer
 
 % LuaLaTeX Chinese support solution
 \usepackage{luatexja} % Main Chinese support package
