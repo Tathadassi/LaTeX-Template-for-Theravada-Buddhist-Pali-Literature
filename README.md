@@ -15,7 +15,7 @@ A professional academic typesetting template specifically designed for Theravada
 - **Engine**: LuaLaTeX (required for Burmese script support)
 - **Fonts**: 
   - Padauk (for Burmese script)
-  - Times New Roman (for Latin/Pali script)
+  - TeX Gyre Schola (for Latin/Pali script)
   - NotoSansDevanagari (for Sanskrit and Hindi script)
   - NotoSansSinhala (for Sinhalese script)
   - Noto Serif CJK SC (for Chinese text)
@@ -109,7 +109,7 @@ Customization
 
 Font Configuration
 
-The template uses Times New Roman as the main font but can be customized:
+The template uses TeX Gyre Schola as the main font but can be customized:
 
 ```latex
 % In the class file or preamble
